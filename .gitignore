@@ -41,3 +41,5 @@ cabal.project.local~
 .cpcache
 .lein*
 clojure/**/target
+.clj-kondo
+.lsp
