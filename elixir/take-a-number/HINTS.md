@@ -8,7 +8,8 @@
 ## 1. Start the machine
 
 - The machine should run in a new process. There is [a built-in function that starts a new process][kernel-spawn-1].
-- You will need another function that the new process will execute.
+- You will need another function that the new process will execute. You can name it, for example, `loop`.
+- Use the [capture operator][special-forms-capture] to pass a named function as an argument.
 
 ## 2. Report the machine state
 
@@ -33,8 +34,9 @@
 - This step doesn't require sending any messages as a response.
 - You can use `_` to match all messages that didn't match previous patterns.
 
-[getting-started-processes]: https://elixir-lang.org/getting-started/processes.html
-[mullen-processes]: https://samuelmullen.com/articles/elixir-processes-send-and-receive/
+[getting-started-processes]: https://hexdocs.pm/elixir/processes.html
+[mullen-processes]: https://samuelmullen.com/articles/elixir-processes-send-and-receive
 [kernel-spawn-1]: https://hexdocs.pm/elixir/Kernel.html#spawn/1
 [kernel-receive]: https://hexdocs.pm/elixir/Kernel.SpecialForms.html#receive/1
 [kernel-send]: https://hexdocs.pm/elixir/Kernel.html#send/2
+[special-forms-capture]: https://hexdocs.pm/elixir/Kernel.SpecialForms.html#&/1

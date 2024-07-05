@@ -1,17 +1,15 @@
 defmodule Username do
-  def sanitize([]), do: ''
-
-  def sanitize([h | t]), do: replace(h) ++ sanitize(t)
-
-  defp replace(h) do
-    case h do
-      ?ä -> 'ae'
-      ?ö -> 'oe'
-      ?ü -> 'ue'
-      ?ß -> 'ss'
-      ?_ -> '_'
-      c when c >= ?a and c <= ?z -> [c]
-      _ -> ''
-    end
+  def sanitize(username) do
+    Enum.map(username, fn char ->
+      case char do
+        ?ä -> [?a, ?e]
+        ?ö -> [?o, ?e]
+        ?ü -> [?u, ?e]
+        ?ß -> [?s, ?s]
+        c when c in ?a..?z or c == ?_ -> c
+        _ -> []
+      end
+    end)
+    |> List.flatten()
   end
 end

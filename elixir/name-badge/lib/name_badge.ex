@@ -1,7 +1,5 @@
 defmodule NameBadge do
-  def print(id, name, department) do
-    id_str = if id, do: "[#{id}] - ", else: ""
-    dept_str = if department, do: String.upcase(department), else: "OWNER"
-    id_str <> name <> " - " <> dept_str
-  end
+  defp get_id(id), do: if(id, do: "[#{id}] - ", else: "")
+  defp get_dept(dept), do: if(dept, do: String.upcase(dept), else: "OWNER")
+  def print(id, name, department), do: get_id(id) <> "#{name} - " <> get_dept(department)
 end
